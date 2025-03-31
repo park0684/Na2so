@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Na2so.Views;
+using Na2so.Presenters;
 
 namespace Na2so
 {
@@ -17,7 +18,9 @@ namespace Na2so
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+            IMainView view = new MainView();
+            new MainPresenter(view);
+            Application.Run((Form)view);
         }
     }
 }

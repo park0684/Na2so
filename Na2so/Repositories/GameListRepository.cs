@@ -17,7 +17,7 @@ namespace Na2so.Repositories
             query.Append("SELECT game_code, game_date, game_type, game_title, game_host, ");
             query.Append("COUNT(att_code) as totalplayer, COUNT(CASE WHEN att_memtype = 1 THEN 1 END) as member, COUNT( CASE WHEN att_memtype = 2 THEN 1 END) as guest ");
             query.Append("FROM game LEFT OUTER JOIN attend ON game_code =att_code WHERE");
-            query.Append($" game_date > '{model.FromDate.ToString("yyyy-MM-dd")}' AND game_date < '{model.ToDate.AddDays(1).ToString("yyyy-MM-dd")}'");
+            query.Append($" game_date >= '{model.FromDate.ToString("yyyy-MM-dd")}' AND game_date < '{model.ToDate.AddDays(1).ToString("yyyy-MM-dd")}'");
 
             if(model.GameType != 0 )
             {

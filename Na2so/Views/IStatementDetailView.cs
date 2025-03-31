@@ -13,6 +13,7 @@ namespace Na2so.Views
         int DueCount { get; set; }
         int? DueAmount { get; set; }
         int? Withdrawal { get; set; }
+        int? Apply { get; set; }
         string MemberName { get; set; }
         string WithdrawalDetail { get; set; }
         string Memo { get; set; }

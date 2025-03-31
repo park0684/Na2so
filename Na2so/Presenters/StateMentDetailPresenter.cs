@@ -110,6 +110,7 @@ namespace Na2so.Presenters
                 _model.StatementAmount = _view.DueAmount;
                 _model.StatementDetail = _view.MemberName;
             }
+            _model.Apply = _view.Apply;
             _model.DueCount = _view.DueCount;
             _model.StatementType = _view.StatementType;
             _model.Memo = _view.Memo;

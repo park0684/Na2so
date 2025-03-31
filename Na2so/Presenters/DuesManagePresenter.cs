@@ -85,7 +85,9 @@ namespace Na2so.Presenters
                 row["name"] = $"{row["name"].ToString().Trim()}({row["mem_birth"].ToString().Trim()})";
                 int dueCount = Convert.ToInt32(row["duecount"]);
                 int paycount = Convert.ToInt32(row["payment"]);
-                row["nonPayment"] = dueCount - paycount < 0 ? 0 : dueCount - paycount;
+                int free = Convert.ToInt32(row["free"]);
+                int nonPay = dueCount - paycount - free;
+                row["nonPayment"] = nonPay < 0 ? 0 : nonPay;
             }
             result.Columns.Remove("duecount");
             
@@ -136,7 +138,7 @@ namespace Na2so.Presenters
             result.Columns.Add("type");
             result.Columns["du_code"].ColumnName = "code";
             result.Columns["du_date"].ColumnName = "date";
-            result.Columns["du_name"].ColumnName = "statement";
+            result.Columns["du_detail"].ColumnName = "statement";
             result.Columns["du_apply"].ColumnName = "applay";
             result.Columns["deposit"].ColumnName = "deposit";
             result.Columns["whthdrawal"].ColumnName = "withdrawal";

@@ -1,5 +1,4 @@
-﻿using Na2so.Presenters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +15,6 @@ namespace Na2so.Views
         public MainView()
         {
             InitializeComponent();
-            new MainPresenter(this);
             btnMemberList.Click += (s,e) => ShowMemberListView?.Invoke(s, e);
             btnGameList.Click += (s, e) => ShowGameListView?.Invoke(s, e);
             btnDues.Click += (s, e) => ShowDuesManageView?.Invoke(s, e);
@@ -78,14 +76,12 @@ namespace Na2so.Views
             childForm.Show();
         }
 
+
         public Form activeForm; // 현재 활성화된 폼
 
 
         public event EventHandler ShowMemberListView;
         public event EventHandler ShowGameListView;
         public event EventHandler ShowDuesManageView;
-
-
-
     }
 }

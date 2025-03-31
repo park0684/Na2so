@@ -35,11 +35,12 @@ namespace Na2so.Repositories
         {
             string query = "SELECT ISNULL(MAX(du_code),0) +1 FROM dues";
             int code = Convert.ToInt32(ScalaQuery(query));
-            query = "INSERT INTO dues(du_code, du_date, du_type, du_pay, du_memcode, du_detail, du_memo, du_idate, du_udate) VALUES(@code, @date, @type, @amount, @memcode, @detail, @memo, GETDATE(), GETDATE())";
+            query = "INSERT INTO dues(du_code, du_date, du_apply, du_type, du_pay, du_memcode, du_detail, du_memo, du_idate, du_udate) VALUES(@code, @date, @apply, @type, @amount, @memcode, @detail, @memo, GETDATE(), GETDATE())";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@code",SqlDbType.Int){Value = code },
                 new SqlParameter("@date",SqlDbType.Date){Value = model.StatementDate},
+                new SqlParameter("@apply",SqlDbType.Int){Value = model.Apply},
                 new SqlParameter("@type",SqlDbType.Int){Value = model.StatementType},
                 new SqlParameter("@amount",SqlDbType.Int){Value = model.StatementAmount},
                 new SqlParameter("@memcode",SqlDbType.Int){Value = model.MemberCode?? 0},
@@ -75,11 +76,12 @@ namespace Na2so.Repositories
 
         public void UpdateStatment(StatementDetailModel model)
         {
-            string query = $"UPDATE dues SET du_date  = @date,  du_type  = @type, du_pay  = @amount, du_memcode = @memcode, du_detail = @detail, du_memo = @memo, du_udate = GETDATE() WHERE du_code ={model.StatementCode}";
+            string query = $"UPDATE dues SET du_date  = @date, du_apply = @apply, du_type  = @type, du_pay  = @amount, du_memcode = @memcode, du_detail = @detail, du_memo = @memo, du_udate = GETDATE() WHERE du_code ={model.StatementCode}";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@date",SqlDbType.Date){Value = model.StatementDate.ToString("yyyy-MM-dd")},
                 new SqlParameter("@type", SqlDbType.Int) { Value = model.StatementType },
+                new SqlParameter("@apply",SqlDbType.Int){ Value = model.Apply},
                 new SqlParameter("@amount", SqlDbType.Int) { Value = model.StatementAmount },
                 new SqlParameter("@memcode", SqlDbType.Int) { Value = model.MemberCode },
                 new SqlParameter("@detail", SqlDbType.VarChar) { Value = model.StatementDetail },

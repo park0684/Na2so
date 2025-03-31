@@ -137,6 +137,12 @@ namespace Na2so.Views
             set { txtMemo.Text = value; }
         }
 
+        public int? Apply 
+        { 
+            get { return Convert.ToInt32(cmbCount.SelectedItem); }
+            set { cmbCount.SelectedItem = value.ToString(); }
+        }
+
         public event EventHandler SaveEvent;
         public event EventHandler CloseEvent;
         public event EventHandler SelectMemberEvent;

@@ -53,6 +53,7 @@ namespace Na2so.Views
             dgvMember.Columns.Add("name", "회원명");
             dgvMember.Columns.Add("payment", "납부");
             dgvMember.Columns.Add("nonPayment", "미납");
+            dgvMember.Columns.Add("free", "면제");
             dgvMember.ReadOnly = true;
             dgvMember.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             foreach (DataGridViewColumn column in dgvMember.Columns)
@@ -62,7 +63,7 @@ namespace Na2so.Views
             dgvMember.AutoGenerateColumns = false;
             dgvMember.Columns["Code"].Visible = false;
             dgvMemberList.ApplyDefaultColumnSettings();
-            dgvMemberList.FormatAsStringCenter("NO","mem_birht", "payment","nonpayment");
+            dgvMemberList.FormatAsStringCenter("NO","mem_birht", "payment","nonpayment","free");
             dgvMemberList.FormatAsStringLeft("name");
 
             dgvState.Columns.Add("date","날짜");

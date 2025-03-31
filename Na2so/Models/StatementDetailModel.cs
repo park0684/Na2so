@@ -14,6 +14,7 @@ namespace Na2so.Models
         public int? StatementCode { get; set; }
         public int? StatementAmount { get; set; }
         public int? DueCount { get; set; }
+        public int? Apply { get; set; }
         public string StatementDetail { get; set; }
         public string MemberName { get; set; }
         public string Memo { get; set; }
