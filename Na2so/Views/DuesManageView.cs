@@ -51,6 +51,7 @@ namespace Na2so.Views
 
             dgvMember.Columns.Add("code", "코드");
             dgvMember.Columns.Add("name", "회원명");
+            dgvMember.Columns.Add("totlaDues", "대상");
             dgvMember.Columns.Add("payment", "납부");
             dgvMember.Columns.Add("nonPayment", "미납");
             dgvMember.Columns.Add("free", "면제");
@@ -63,8 +64,9 @@ namespace Na2so.Views
             dgvMember.AutoGenerateColumns = false;
             dgvMember.Columns["Code"].Visible = false;
             dgvMemberList.ApplyDefaultColumnSettings();
-            dgvMemberList.FormatAsStringCenter("NO","mem_birht", "payment","nonpayment","free");
+            dgvMemberList.FormatAsStringCenter("mem_birht");
             dgvMemberList.FormatAsStringLeft("name");
+            dgvMemberList.FormatAsInt("totalDues", "payment", "nonPayment", "fee");
 
             dgvState.Columns.Add("date","날짜");
             dgvState.Columns.Add("type", "항목");

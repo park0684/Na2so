@@ -24,6 +24,11 @@ namespace Na2so.Views
         {
             btnSearch.Click += (s, e) => MemberSeachEvent?.Invoke(this, EventArgs.Empty);
             btnClose.Click += (s, e) => CloseFormEvent?.Invoke(this, EventArgs.Empty);
+            txtSearchWord.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    MemberSeachEvent?.Invoke(this, EventArgs.Empty);
+            };
         }
         public string SearchWord
         {
@@ -38,6 +43,7 @@ namespace Na2so.Views
 
         public string MemberName
         { get; private set; }
+        public bool IsInculde { get => chkSecetInculde.Checked; set => chkSecetInculde.Checked = value; }
 
         public event EventHandler MemberSeachEvent;
         public event EventHandler SelectMemberEvent;
@@ -55,12 +61,14 @@ namespace Na2so.Views
             {
                 Button btn = new Button
                 {
-                    Size = new Size(90, 50),
+                    Size = new Size(90, 35),
                     FlatStyle = FlatStyle.Flat,
-
+                    BackColor = Color.FromArgb(126, 112, 247),
+                    ForeColor = Color.White,
                     Text = member.name,
                     Tag = member.code,
                 };
+                btn.FlatAppearance.BorderSize = 0;
                 btn.Click += (sender, e) =>
                 {
                     MemberCode = (int)((Button)sender).Tag; 

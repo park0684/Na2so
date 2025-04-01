@@ -10,6 +10,7 @@ namespace Na2so.Views
     {
         string SearchWord { get; set; }
         int MemberCode { get;}
+        bool IsInculde { get; set; }
         string MemberName { get; }
         event EventHandler MemberSeachEvent;
         event EventHandler SelectMemberEvent;

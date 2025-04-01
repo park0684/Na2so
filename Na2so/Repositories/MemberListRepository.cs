@@ -88,7 +88,7 @@ namespace Na2so.Repositories
             }
             
             //회비 납부 현황 집계
-            query.Append("(select du_memcode, sum(du_apply) as payment FROM dues GROUP BY du_memcode) as dues ON mem_code = du_memcode");
+            query.Append("(select du_memcode, sum(du_apply) as payment FROM dues WHERE du_status = 1 GROUP BY du_memcode) as dues ON mem_code = du_memcode");
 
             //정렬 
             query.Append(" ORDER BY mem_position, mem_status, mem_code");

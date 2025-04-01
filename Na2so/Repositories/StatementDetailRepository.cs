@@ -13,7 +13,7 @@ namespace Na2so.Repositories
     {
         public void DeleteStatment(int statmentCode)
         {
-            string query = "DELETE FROM dues WHERE du_code = @code";
+            string query = "UPDATE dues SET du_status = 0 WHERE du_code = @code";
             SqlParameter[] parameters = { new SqlParameter("@code", SqlDbType.Int) { Value = statmentCode } };
             using (SqlConnection connection = OpenSql())
             {
@@ -35,7 +35,7 @@ namespace Na2so.Repositories
         {
             string query = "SELECT ISNULL(MAX(du_code),0) +1 FROM dues";
             int code = Convert.ToInt32(ScalaQuery(query));
-            query = "INSERT INTO dues(du_code, du_date, du_apply, du_type, du_pay, du_memcode, du_detail, du_memo, du_idate, du_udate) VALUES(@code, @date, @apply, @type, @amount, @memcode, @detail, @memo, GETDATE(), GETDATE())";
+            query = "INSERT INTO dues(du_code, du_date, du_apply, du_type, du_pay, du_memcode, du_detail, du_memo, du_idate, du_udate, du_status) VALUES(@code, @date, @apply, @type, @amount, @memcode, @detail, @memo, GETDATE(), GETDATE(), 1)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@code",SqlDbType.Int){Value = code },
@@ -76,7 +76,7 @@ namespace Na2so.Repositories
 
         public void UpdateStatment(StatementDetailModel model)
         {
-            string query = $"UPDATE dues SET du_date  = @date, du_apply = @apply, du_type  = @type, du_pay  = @amount, du_memcode = @memcode, du_detail = @detail, du_memo = @memo, du_udate = GETDATE() WHERE du_code ={model.StatementCode}";
+            string query = $"UPDATE dues SET du_date  = @date, du_apply = @apply, du_type  = @type, du_pay  = @amount, du_memcode = @memcode, du_detail = @detail, du_memo = @memo, du_udate = GETDATE() , du_status = 1 WHERE du_code ={model.StatementCode}";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@date",SqlDbType.Date){Value = model.StatementDate.ToString("yyyy-MM-dd")},

@@ -20,6 +20,7 @@ namespace Na2so.Views
             ViewEvent();
             txtMemberName.Enabled = false;
             btnDelete.Visible = false;
+            
 
         }
         public void ViewEvent()
@@ -27,6 +28,7 @@ namespace Na2so.Views
             btnSave.Click += (s, e) => SaveEvent?.Invoke(this, EventArgs.Empty);
             btnClose.Click += (s, e) => CloseEvent?.Invoke(this, EventArgs.Empty);
             btnSelectMember.Click += (s, e) => SelectMemberEvent?.Invoke(this, EventArgs.Empty);
+            btnDelete.Click += (s, e) => DeleteEvent?.Invoke(this, EventArgs.Empty);
             cmbStatementType.SelectedIndexChanged += (s,e) => TypeChaingedSet();
         }
 
@@ -39,6 +41,8 @@ namespace Na2so.Views
                 grpWihtdrawal.Enabled = false;
                 txtWithdrawalAmount.Text = "";
                 txtWithdrawalDetail.Text = "";
+                txtDueAmount.Text = "10000";
+                cmbCount.SelectedIndex = 0;
             }
             else
             {
@@ -46,6 +50,7 @@ namespace Na2so.Views
                 grpDue.Enabled = false;
                 txtDueAmount.Text = "";
                 txtMemberName.Text = "";
+                cmbCount.SelectedIndex = 0;
             }
         }
         private void InitializeComboBox()

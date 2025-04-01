@@ -21,9 +21,14 @@ namespace Na2so.Views
         }
         private void ViewEvent()
         {
-            btnClose.Click += (e, s) => CloseFormEvevnt?.Invoke(this, EventArgs.Empty);
-            btnAddGuest.Click += (e, s) => AddGuestEvent?.Invoke(this, EventArgs.Empty);
-            btnSave.Click += (e, s) => SaveGuestEvent?.Invoke(this, EventArgs.Empty);
+            btnClose.Click += (s, e) => CloseFormEvevnt?.Invoke(this, EventArgs.Empty);
+            btnAddGuest.Click += (s, e) => AddGuestEvent?.Invoke(this, EventArgs.Empty);
+            btnSave.Click += (s, e) => SaveGuestEvent?.Invoke(this, EventArgs.Empty);
+            txtGuestName.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                    AddGuestEvent?.Invoke(this, EventArgs.Empty);
+            };
         }
 
         public string GuestName
@@ -155,6 +160,9 @@ namespace Na2so.Views
             };
         }
 
-
+        public void TextBoxClear()
+        {
+            txtGuestName.Text = "";
+        }
     }
 }

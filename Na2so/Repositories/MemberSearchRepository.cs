@@ -12,8 +12,19 @@ namespace Na2so.Repositories
     {
         public DataTable LoadMember(MemberSearchModel model )
         {
-            string query = $"SELECT mem_code, mem_name FROM member WHERE mem_name LIKE '%{model.SearchWord}%'";
-            return SqlAdapterQuery(query);
+            StringBuilder query = new StringBuilder();
+            List<string> whereCondition = new List<string>();
+            query.Append($"SELECT mem_code, mem_name FROM member ");
+            if (!string.IsNullOrEmpty(model.SearchWord))
+                whereCondition.Add($"mem_name LIKE '%{model.SearchWord}%'");
+            if (!model.IsInclude)
+                whereCondition.Add("mem_status != 2");
+            if (whereCondition.Count > 0)
+                query.Append(" WHERE ");
+                query.Append(string.Join(" AND ", whereCondition));
+            query.Append(" ORDER BY mem_name");
+
+            return SqlAdapterQuery(query.ToString());
         }
     }
 }

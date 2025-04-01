@@ -162,6 +162,12 @@
     <Compile Include="Views\MemberSearchView.Designer.cs">
       <DependentUpon>MemberSearchView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ScoreBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ScoreBoard.Designer.cs">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StatementDetailView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MemberSearchView.resx">
       <DependentUpon>MemberSearchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ScoreBoard.resx">
+      <DependentUpon>ScoreBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\StatementDetailView.resx">
       <DependentUpon>StatementDetailView.cs</DependentUpon>

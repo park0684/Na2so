@@ -31,6 +31,7 @@ namespace Na2so.Presenters
         private void AddGuest(object sender, EventArgs e)
         {
             _view.AddGuestPanel();
+            _view.GuestName = "";
         }
 
         private void SaveGuest(object sender, EventArgs e)

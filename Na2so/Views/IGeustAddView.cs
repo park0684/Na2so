@@ -16,6 +16,7 @@ namespace Na2so.Views
 
         void CloseForm();
         void AddGuestPanel();
+        void TextBoxClear();
 
     }
 }

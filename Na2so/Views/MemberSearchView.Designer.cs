@@ -35,6 +35,7 @@ namespace Na2so.Views
             this.txtSearchWord = new System.Windows.Forms.TextBox();
             this.flpMemberList = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.chkSecetInculde = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSelect
@@ -70,7 +71,8 @@ namespace Na2so.Views
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.Black;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(112)))), ((int)(((byte)(247)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.White;
@@ -84,13 +86,14 @@ namespace Na2so.Views
             // 
             // txtSearchWord
             // 
-            this.txtSearchWord.Location = new System.Drawing.Point(73, 25);
+            this.txtSearchWord.Location = new System.Drawing.Point(68, 25);
             this.txtSearchWord.Name = "txtSearchWord";
             this.txtSearchWord.Size = new System.Drawing.Size(187, 23);
             this.txtSearchWord.TabIndex = 6;
             // 
             // flpMemberList
             // 
+            this.flpMemberList.BackColor = System.Drawing.SystemColors.Control;
             this.flpMemberList.Location = new System.Drawing.Point(12, 79);
             this.flpMemberList.Name = "flpMemberList";
             this.flpMemberList.Size = new System.Drawing.Size(406, 286);
@@ -99,11 +102,23 @@ namespace Na2so.Views
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(12, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 10;
             this.label1.Text = "회원명 :";
+            // 
+            // chkSecetInculde
+            // 
+            this.chkSecetInculde.AutoSize = true;
+            this.chkSecetInculde.ForeColor = System.Drawing.Color.Black;
+            this.chkSecetInculde.Location = new System.Drawing.Point(261, 27);
+            this.chkSecetInculde.Name = "chkSecetInculde";
+            this.chkSecetInculde.Size = new System.Drawing.Size(74, 19);
+            this.chkSecetInculde.TabIndex = 11;
+            this.chkSecetInculde.Text = "탈퇴포함";
+            this.chkSecetInculde.UseVisualStyleBackColor = true;
             // 
             // MemberSearchView
             // 
@@ -111,6 +126,7 @@ namespace Na2so.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(430, 443);
+            this.Controls.Add(this.chkSecetInculde);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnClose);
@@ -134,5 +150,6 @@ namespace Na2so.Views
         private System.Windows.Forms.TextBox txtSearchWord;
         private System.Windows.Forms.FlowLayoutPanel flpMemberList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkSecetInculde;
     }
 }

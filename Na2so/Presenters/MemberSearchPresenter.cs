@@ -26,6 +26,7 @@ namespace Na2so.Presenters
             _view.MemberSeachEvent += MemberSearch;
             _view.SelectMemberEvent += SelectMember;
             _model = new MemberSearchModel();
+            MemberSearch(this, EventArgs.Empty);
         }
 
         private void SelectMember(object sender, EventArgs e)
@@ -38,7 +39,8 @@ namespace Na2so.Presenters
 
         private void MemberSearch(object sender, EventArgs e)
         {
-            
+            _model.SearchWord = _view.SearchWord;
+            _model.IsInclude = _view.IsInculde;
             DataTable resutl = _repository.LoadMember(_model);
             _model.MemberList = new List<(int code, string name)>();
             foreach(DataRow row in resutl.Rows)

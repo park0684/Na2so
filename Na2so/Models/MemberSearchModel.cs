@@ -10,6 +10,7 @@ namespace Na2so.Models
     {
         public int? MemberCode { get; set; }
         public string SearchWord { get; set; }
+        public bool IsInclude { get; set; }
         public List<(int code, string name)> MemberList { get; set; }
     }
 }

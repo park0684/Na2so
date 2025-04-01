@@ -78,18 +78,18 @@ namespace Na2so.Presenters
             result.Columns.Add("nonPayment");
             result.Columns["mem_code"].ColumnName = "code";
             result.Columns["mem_name"].ColumnName = "name";
+            result.Columns["totaldues"].ColumnName = "totalDues";
             int i = 1;
             foreach (DataRow row in result.Rows)
             {
                 row["No"] = i++;
                 row["name"] = $"{row["name"].ToString().Trim()}({row["mem_birth"].ToString().Trim()})";
-                int dueCount = Convert.ToInt32(row["duecount"]);
+                int dueCount = Convert.ToInt32(row["totalDues"]);
                 int paycount = Convert.ToInt32(row["payment"]);
                 int free = Convert.ToInt32(row["free"]);
                 int nonPay = dueCount - paycount - free;
                 row["nonPayment"] = nonPay < 0 ? 0 : nonPay;
             }
-            result.Columns.Remove("duecount");
             
             //전체 행 추가
             DataRow newRow = result.NewRow();

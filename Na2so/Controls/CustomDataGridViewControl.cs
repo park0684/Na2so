@@ -40,7 +40,7 @@ namespace Na2so.Controls
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.DefaultCellStyle.Font = new Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             dgv.Columns.Add("No", "No");
-            dgv.Columns["No"].Width = 50;
+            dgv.Columns["No"].Width = 10;
             dgv.Columns["No"].ReadOnly = true;
             dgv.Columns["No"].DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
             dgv.Columns["No"].DefaultCellStyle.SelectionBackColor = Color.LightGoldenrodYellow;
@@ -72,7 +72,7 @@ namespace Na2so.Controls
                 {
                     dgv.Columns[columnName].DefaultCellStyle.Format = "#,##0;-#,##0;0";
                     dgv.Columns[columnName].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dgv.Columns[columnName].MinimumWidth = 80;
+                    dgv.Columns[columnName].MinimumWidth = 10;
                     dgv.Columns[columnName].ValueType = typeof(int);
                 }
             }
@@ -89,7 +89,7 @@ namespace Na2so.Controls
                 {
                     dgv.Columns[columnName].DefaultCellStyle.Format = "#,##0;-#,##0;0";
                     dgv.Columns[columnName].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dgv.Columns[columnName].MinimumWidth = 80;
+                    dgv.Columns[columnName].MinimumWidth = 10;
                     dgv.Columns[columnName].ValueType = typeof(float);
                 }
             }
@@ -106,7 +106,7 @@ namespace Na2so.Controls
                 {
                     dgv.Columns[columnName].DefaultCellStyle.Format = "#,##0.##;-#,##0.##;0";
                     dgv.Columns[columnName].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dgv.Columns[columnName].MinimumWidth = 80;
+                    dgv.Columns[columnName].MinimumWidth = 10;
                     dgv.Columns[columnName].ValueType = typeof(decimal);
                 }
             }
